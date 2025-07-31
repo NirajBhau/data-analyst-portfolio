@@ -1,14 +1,13 @@
 # Copy these environment variables to Netlify
 
-GOOGLE_CLIENT_ID=your_client_id_here
-GOOGLE_CLIENT_SECRET=your_client_secret_here
-GOOGLE_REDIRECT_URI=https://your-site-name.netlify.app/api/auth/callback/google
+GOOGLE_CLIENT_ID=761873372123-9b0iudi660g3vpsl44vppvb9e9ppuig6.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=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
+GOOGLE_REDIRECT_URI=https://nirajpatilportfolio.netlify.app/api/auth/callback/google
 NEXTAUTH_SECRET=b49c4bb7232cd4268c532b8c5f006a4f11c1456851f043f9272f08958ba46e2f
-NEXTAUTH_URL=https://your-site-name.netlify.app
+NEXTAUTH_URL=https://nirajpatilportfolio.netlify.app
 RESEND_API_KEY=re_Ekj5yEE9_9zVYtt7vo8zVbnmJiFqF5Yh1
 
 # Instructions:
-# 1. Replace 'your-site-name' with your actual Netlify site name
-# 2. Get GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET from Google Cloud Console
-# 3. Copy each line to Netlify Environment Variables (without the # comments)
-# 4. Make sure to replace the placeholder values with your actual values 
+# 1. Copy each line above to Netlify Environment Variables (without the # comments)
+# 2. Make sure to replace any placeholder values with your actual values
+# 3. The GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET are now your real credentials 
