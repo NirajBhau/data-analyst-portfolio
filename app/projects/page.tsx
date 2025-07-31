@@ -379,7 +379,7 @@ export default function ProjectsPage() {
                                   <Eye className="w-4 h-4" />
                                   Insights
                                 </div>
-                              </Button>
+                      </Button>
                             </DialogTrigger>
                             <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
                               <DialogHeader>
@@ -508,10 +508,10 @@ export default function ProjectsPage() {
                       <div className="flex flex-wrap gap-2">
                         <Button className="flex-1 min-w-[120px]" asChild>
                           <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                            <Github className="w-4 h-4" />
-                            View Code
-                          </a>
-                        </Button>
+                          <Github className="w-4 h-4" />
+                          View Code
+                        </a>
+                      </Button>
                         {project.liveDemo && (
                           <Button variant="outline" className="flex-1 min-w-[120px]" asChild>
                             <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">

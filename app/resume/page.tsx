@@ -273,22 +273,22 @@ export default function ResumePage() {
                 <CardContent>
                   <div className="border-l-2 border-blue-500 pl-4">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3">
-                      <div>
+                          <div>
                         <h4 className="font-semibold text-gray-800 dark:text-gray-200">{internship.company} | {internship.location}</h4>
                         <p className="text-blue-600 dark:text-blue-400">{internship.role}</p>
-                      </div>
-                      <div className="text-right">
+                          </div>
+                          <div className="text-right">
                         <span className="text-sm text-gray-600 dark:text-gray-400">{internship.period}</span>
                       </div>
-                    </div>
+                          </div>
                     <div className="space-y-2">
                       {internship.achievements.map((achievement, index) => (
                         <div key={index} className="flex items-start gap-3">
                           <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                           <p className="text-sm text-gray-600 dark:text-gray-400">{achievement}</p>
                         </div>
-                      ))}
-                    </div>
+                            ))}
+                          </div>
                   </div>
                 </CardContent>
               </Card>
@@ -378,7 +378,7 @@ export default function ResumePage() {
                               <h4 className="font-semibold text-gray-800 dark:text-gray-200">{cert.name}</h4>
                               <p className="text-sm text-blue-600 dark:text-blue-400">{cert.issuer}</p>
                               <p className="text-sm text-gray-600 dark:text-gray-400">{cert.description}</p>
-                            </div>
+                      </div>
                             <Dialog>
                               <DialogTrigger asChild>
                                 <Button 
@@ -402,14 +402,14 @@ export default function ResumePage() {
                                     fill
                                     className="object-contain"
                                   />
-                                </div>
+                      </div>
                               </DialogContent>
                             </Dialog>
-                          </div>
+                      </div>
                         </CardContent>
                       </Card>
                     ))}
-                  </div>
+                      </div>
                 </CardContent>
               </Card>
             </motion.div>
