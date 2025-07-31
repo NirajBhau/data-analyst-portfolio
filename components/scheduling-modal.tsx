@@ -57,6 +57,22 @@ export default function SchedulingModal({ trigger }: SchedulingModalProps) {
     setIsSubmitting(true)
 
     try {
+      // Convert 12-hour time format to 24-hour format
+      const convertTimeTo24Hour = (time12h: string) => {
+        const [time, modifier] = time12h.split(' ')
+        let [hours, minutes] = time.split(':')
+        
+        if (hours === '12') {
+          hours = modifier === 'PM' ? '12' : '00'
+        } else if (modifier === 'PM') {
+          hours = String(parseInt(hours) + 12)
+        } else {
+          hours = hours.padStart(2, '0')
+        }
+        
+        return `${hours}:${minutes}`
+      }
+
       // Create Google Calendar event with Google Meet
       const eventData = {
         summary: `${formData.meetingType} with ${formData.name}`,
@@ -76,11 +92,11 @@ ${formData.message}
 This meeting was scheduled through Niraj Patil's portfolio.
         `.trim(),
         start: {
-          dateTime: `${formData.preferredDate}T${formData.preferredTime}:00`,
+          dateTime: `${formData.preferredDate}T${convertTimeTo24Hour(formData.preferredTime)}:00`,
           timeZone: 'Asia/Kolkata',
         },
         end: {
-          dateTime: getEndTime(formData.preferredDate, formData.preferredTime, parseInt(formData.duration)),
+          dateTime: getEndTime(formData.preferredDate, convertTimeTo24Hour(formData.preferredTime), parseInt(formData.duration)),
           timeZone: 'Asia/Kolkata',
         },
         attendees: [
