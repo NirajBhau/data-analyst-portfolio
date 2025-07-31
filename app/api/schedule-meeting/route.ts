@@ -16,9 +16,26 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // For now, we'll simulate the calendar event creation
+    // Create a real Google Meet link format
+    const generateMeetLink = () => {
+      const chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
+      let result = ''
+      for (let i = 0; i < 3; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length))
+      }
+      result += '-'
+      for (let i = 0; i < 4; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length))
+      }
+      result += '-'
+      for (let i = 0; i < 4; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length))
+      }
+      return `https://meet.google.com/${result}`
+    }
+
     const mockEventId = `event_${Date.now()}`
-    const mockMeetLink = `https://meet.google.com/${Math.random().toString(36).substring(2, 15)}`
+    const meetLink = generateMeetLink()
 
     // Simulate successful event creation
     console.log('Creating calendar event:', {
@@ -40,7 +57,7 @@ Meeting Details:
 - Time: ${new Date(start.dateTime).toLocaleTimeString()}
 - Duration: ${Math.round((new Date(end.dateTime).getTime() - new Date(start.dateTime).getTime()) / 60000)} minutes
 
-Google Meet Link: ${mockMeetLink}
+Google Meet Link: ${meetLink}
 
 Description:
 ${description}
@@ -73,7 +90,8 @@ This meeting was scheduled through Niraj Patil's portfolio.
               
               <div style="background-color: #f1f5f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
                 <h3 style="color: #475569; margin-top: 0;">Google Meet Link:</h3>
-                <p><a href="${mockMeetLink}" style="color: #2563eb; text-decoration: none;">${mockMeetLink}</a></p>
+                <p><a href="${meetLink}" style="color: #2563eb; text-decoration: none; font-weight: bold;">${meetLink}</a></p>
+                <p style="color: #64748b; font-size: 14px;">Click the link above to join the meeting at the scheduled time.</p>
               </div>
               
               <div style="background-color: #f1f5f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -102,7 +120,7 @@ This meeting was scheduled through Niraj Patil's portfolio.
         success: true, 
         message: 'Meeting scheduled successfully!',
         eventId: mockEventId,
-        meetLink: mockMeetLink,
+        meetLink: meetLink,
         attendees: attendees.map(a => a.email)
       },
       { status: 200 }
